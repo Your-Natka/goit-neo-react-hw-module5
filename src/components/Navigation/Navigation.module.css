@@ -1,0 +1,18 @@
+.nav {
+  display: flex;
+  gap: 20px;
+  padding: 20px 32px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.link {
+  color: #222;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.active {
+  color: crimson;
+}

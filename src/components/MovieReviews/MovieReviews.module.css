@@ -1,0 +1,17 @@
+.list {
+  padding: 20px 0;
+}
+
+.item {
+  margin-bottom: 30px;
+}
+
+.author {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.content {
+  font-size: 14px;
+  color: #555;
+}

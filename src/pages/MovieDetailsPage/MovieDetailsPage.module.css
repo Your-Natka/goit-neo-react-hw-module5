@@ -1,0 +1,58 @@
+.container {
+  padding: 24px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #000;
+  text-decoration: none;
+}
+
+.info {
+  display: flex;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #ccc;
+}
+
+.poster {
+  width: 300px;
+  border-radius: 4px;
+}
+
+.description {
+  flex: 1;
+}
+
+.description h1 {
+  margin-bottom: 20px;
+}
+
+.description h3 {
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+.additional {
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.link {
+  color: #0b5ed7;
+  text-decoration: none;
+}
+
+.active {
+  color: crimson;
+  text-decoration: none;
+  font-weight: 600;
+}

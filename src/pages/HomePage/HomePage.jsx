@@ -1,16 +1,24 @@
 import { useEffect, useState } from 'react';
 import { getTrendingMovies } from '../../services/tmdb';
+import MovieList from '../../components/MovieList/MovieList';
+import css from './HomePage.module.css';
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchMovies() {
       try {
-        const data = await getTrendingMovies();
-        setMovies(data);
-      } catch (error) {
-        console.error(error);
+        setLoading(true);
+
+        const movies = await getTrendingMovies();
+        setMovies(movies);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -18,14 +26,14 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
-      <h1>Trending today</h1>
+    <main className={css.container}>
+      <h1 className={css.title}>Trending today</h1>
 
-      <ul>
-        {movies.map(movie => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul>
-    </div>
+      {loading && <p>Loading...</p>}
+
+      {error && <p>{error}</p>}
+
+      {movies.length > 0 && <MovieList movies={movies} />}
+    </main>
   );
 }

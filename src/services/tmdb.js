@@ -10,20 +10,36 @@ const options = {
   },
 };
 
-export const getTrendingMovies = async () =>
-  await axios.get(`${BASE_URL}/trending/movie/day`, options);
+export const getTrendingMovies = async () => {
+  const { data } = await axios.get(`${BASE_URL}/trending/movie/day`, options);
+  return data.results;
+};
 
-export const searchMovies = async query =>
-  await axios.get(`${BASE_URL}/search/movie`, {
+export const searchMovies = async query => {
+  const { data } = await axios.get(`${BASE_URL}/search/movie`, {
     ...options,
-    params: { query },
+    params: {
+      query,
+      include_adult: false,
+      language: 'en-US',
+      page: 1,
+    },
   });
 
-export const getMovieDetails = async id =>
-  await axios.get(`${BASE_URL}/movie/${id}`, options);
+  return data.results;
+};
 
-export const getMovieCast = async id =>
-  axios.get(`${BASE_URL}/movie/${id}/credits`, options);
+export const getMovieDetails = async id => {
+  const { data } = await axios.get(`${BASE_URL}/movie/${id}`, options);
+  return data;
+};
 
-export const getMovieReviews = async id =>
-  axios.get(`${BASE_URL}/movie/${id}/reviews`, options);
+export const getMovieCast = async id => {
+  const { data } = await axios.get(`${BASE_URL}/movie/${id}/credits`, options);
+  return data.cast;
+};
+
+export const getMovieReviews = async id => {
+  const { data } = await axios.get(`${BASE_URL}/movie/${id}/reviews`, options);
+  return data.results;
+};

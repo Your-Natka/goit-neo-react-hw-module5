@@ -1,0 +1,16 @@
+.list {
+  padding: 25px 45px;
+}
+
+.item {
+  margin-bottom: 10px;
+}
+
+.link {
+  color: #0b5ed7;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: crimson;
+}
